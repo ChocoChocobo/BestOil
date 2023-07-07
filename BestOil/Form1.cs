@@ -250,7 +250,10 @@ namespace BestOil
             }
             else
             {
-                toPayAllLabel.Text = "0,00";
+                double totalAmount = double.Parse(cafeToPaylabel.Text);
+                toPayAllLabel.Text = totalAmount.ToString("0.00");
+
+                overallRevenue += totalAmount;
             }
         }
         //Таймер на смену в 10 сек
@@ -273,9 +276,10 @@ namespace BestOil
                 hotDogQuantityTextBox.Text = "";
                 burgerQuantityTextBox.Text = "";
                 friesQuantityTextBox.Text = "";
-                cokeQuantityTextBox.Text = "";
+                cokeQuantityTextBox.Text = "";                
                 shiftTimer.Start();
                 MessageBox.Show($"Выручка за клиента составила: {toPayAllLabel.Text}", "Выручка");
+                toPayAllLabel.Text = "0,00";
             }
             else
             {
